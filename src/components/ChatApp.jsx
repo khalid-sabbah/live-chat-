@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import ChatCard from "./ChatCard";
-import ChatNavBar from "./ChatNavBar";
 import ChatWindow from "./ChatWindow";
 import { IoSearchOutline } from "react-icons/io5";
 
@@ -131,7 +130,7 @@ export default function ChatApp() {
   const [isclicked, setIsClicked] = useState(false);
   const [filterdChats, setFilterdChats] = useState(chatData);
   const [inputValue, setInputValue] = useState("");
-  const [currentChat, setCurrentChat] = useState("");
+  const [currentChat, setCurrentChat] = useState({});
 
   const clicked = () => {
     setIsClicked(true);
@@ -139,11 +138,6 @@ export default function ChatApp() {
 
   const close = () => {
     setIsClicked(false);
-  };
-
-  const handleCurrentChat = (chat) => {
-    console.log(chat);
-    setCurrentChat(chat);
   };
 
   const handleOnChange = (e) => {
@@ -179,16 +173,13 @@ export default function ChatApp() {
               <div className="flex flex-col  ">
                 <div
                   onClick={clicked}
-                  className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] "
-                >
+                  className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] ">
                   {filterdChats.length > 0 ? (
                     filterdChats.map((item) => (
                       <ChatCard
                         key={item.id}
                         data={item}
-                        onClick={() => {
-                          handleCurrentChat(item);
-                        }}
+                        setCurrentChat={setCurrentChat}
                       />
                     ))
                   ) : (
@@ -222,16 +213,13 @@ export default function ChatApp() {
             <div className="flex flex-col  ">
               <div
                 onClick={clicked}
-                className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] "
-              >
+                className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] ">
                 {filterdChats.length > 0 ? (
                   filterdChats.map((item) => (
                     <ChatCard
                       key={item.id}
                       data={item}
-                      onClick={() => {
-                        handleCurrentChat(item);
-                      }}
+                      setCurrentChat={setCurrentChat}
                     />
                   ))
                 ) : (
@@ -241,7 +229,6 @@ export default function ChatApp() {
                 )}
               </div>
             </div>
-            {/* <ChatNavBar /> */}
           </div>
 
           <div className="hidden lg:flex gap-2 h-screen    ">
@@ -260,16 +247,13 @@ export default function ChatApp() {
               <div className="flex flex-col  ">
                 <div
                   onClick={clicked}
-                  className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] "
-                >
+                  className="flex-1 overflow-auto bg-white rounded-xl shadow-[0px_4px_5px_2px_rgba(121,197,239,0.38)] ">
                   {filterdChats.length > 0 ? (
                     filterdChats.map((item) => (
                       <ChatCard
                         key={item.id}
                         data={item}
-                        onClick={() => {
-                          handleCurrentChat(item);
-                        }}
+                        setCurrentChat={setCurrentChat}
                       />
                     ))
                   ) : (
@@ -289,7 +273,3 @@ export default function ChatApp() {
     </>
   );
 }
-
-// {/* <div className="fixed bottom-0 left-0 w-full">
-//     <ChatNavBar />
-//   </div> */}
