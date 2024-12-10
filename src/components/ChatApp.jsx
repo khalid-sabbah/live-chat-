@@ -18,7 +18,7 @@ export default function ChatApp() {
       id: 2,
       image:
         "https://t4.ftcdn.net/jpg/06/43/68/65/360_F_643686558_Efl6HB1ITw98bx1PdAd1wy56QpUTMh47.jpg",
-      name: "Aisha",
+      name: "Reem",
       subtitle: "How's it going?",
       date: "Yesterday",
     },
