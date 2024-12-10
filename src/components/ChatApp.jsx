@@ -144,7 +144,7 @@ export default function ChatApp() {
     setInputValue(e.target.value);
     setFilterdChats(
       chatData.filter((item) =>
-        item.name.toLowerCase().includes(e.target.value)
+        item.name.toLowerCase().includes(e.target.value.toLowerCase())
       )
     );
   };
