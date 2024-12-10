@@ -130,7 +130,7 @@ export default function ChatApp() {
   const [isclicked, setIsClicked] = useState(false);
   const [filterdChats, setFilterdChats] = useState(chatData);
   const [inputValue, setInputValue] = useState("");
-  const [currentChat, setCurrentChat] = useState({});
+  const [currentChat, setCurrentChat] = useState(chatData[0]);
 
   const clicked = () => {
     setIsClicked(true);

@@ -15,14 +15,13 @@ export default function ChatHeader({ close, currentChat }) {
             <img
               className="w-full h-full"
               src={
-                currentChat.image ||
-                "https://static.vecteezy.com/system/resources/thumbnails/036/594/092/small_2x/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg"
+                currentChat.image 
               }
               alt=""
             />
           </div>
 
-          <span className="font-bold">{currentChat?.name || "User Name"}</span>
+          <span className="font-bold">{currentChat?.name }</span>
         </div>
         <div className="flex gap-3">
           <span>
